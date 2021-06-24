@@ -1,0 +1,11 @@
+{
+	"name": "Test data generator",
+	"description": "Generate test data for various field types!",
+	"version": "0.1",
+	"manifest_version": 2,
+	"browser_action": {
+		"default_title": "Data Generator",
+		"default_popup": "popup.html"
+	}
+}
+
