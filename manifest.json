@@ -6,6 +6,13 @@
 	"browser_action": {
 		"default_title": "Data Generator",
 		"default_popup": "popup.html"
-	}
+	},
+	"web_accessible_resources": [
+		"data/male_last_name.txt",
+		"data/female_last_name.txt",
+		"data/male_name.txt",
+		"data/female_name.txt",
+		"data/lorem_ipsum.txt"
+	]
 }
 
