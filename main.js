@@ -30,7 +30,34 @@ function choose_option(option){
 		output_field.value=random_nip();
 		break;
 		case 'Text':
-		output_field.value=get_text(10);
+
+		if (!document.getElementById("amount_of_chars")){
+			let tag = document.createElement("input");
+			let element = document.getElementById("additional_options");
+			element.appendChild(tag);
+
+			let placeholder = document.createAttribute("placeholder");
+			placeholder.value = "Characters";
+			tag.setAttributeNode(placeholder);
+
+			let id = document.createAttribute("id");
+			id.value = "amount_of_chars";
+			tag.setAttributeNode(id);
+
+			let type = document.createAttribute("type");
+			type.value = "number";
+			tag.setAttributeNode(type);
+
+
+			let min = document.createAttribute("min");
+			min.value = "1";
+			tag.setAttributeNode(min);
+
+			let max = document.createAttribute("max");
+			max.value = "29659";
+			tag.setAttributeNode(max);
+		}
+		output_field.value=get_text(document.getElementById("amount_of_chars").value);
 		break;
 	}
 	copy_text(output_field);
