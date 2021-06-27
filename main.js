@@ -45,7 +45,7 @@ function choose_option(option){
 			element.appendChild(tag);
 
 			let placeholder = document.createAttribute("placeholder");
-			placeholder.value = "Characters";
+			placeholder.value = "Length";
 			tag.setAttributeNode(placeholder);
 
 			let id = document.createAttribute("id");
