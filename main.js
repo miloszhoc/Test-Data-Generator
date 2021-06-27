@@ -24,7 +24,8 @@ function choose_option(option){
 		output_field.value=random_female_full_name();
 		break;
 		case 'Email':
-		output_field.value='Email';
+		output_field.value='@yopmail.com';
+		output_field.value=random_email(output_field.value);
 		break;
 		case 'Phone':
 		output_field.value=random_phone();
@@ -113,8 +114,10 @@ function random_female_full_name(){
 }
 
 
-function random_email(){
-	
+function random_email(domain){
+	const nicknames_url = chrome.runtime.getURL('data/nicknames.txt');
+	let nicknames = get_file_data(nicknames_url);
+	return nicknames[Math.floor(Math.random() * nicknames.length)] + '' + domain;
 }
 
 
