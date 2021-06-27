@@ -32,6 +32,9 @@ function choose_option(option){
 		case 'NIP':
 		output_field.value=random_nip();
 		break;
+		case 'City':
+		output_field.value=random_city();
+		break;
 		case 'Text':
 		additional_options.style.display='block';
 
@@ -74,13 +77,13 @@ function copy_text(from_field){
 }
 
 
-function get_file_data(url, split_lines=true){
+function get_file_data(url, split_lines='\r\n'){
 	let xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("GET", url, false);
 	xmlHttp.overrideMimeType("text/plain");
 	xmlHttp.send();
 	if (split_lines){
-		return xmlHttp.responseText.split('\r\n');	
+		return xmlHttp.responseText.split(split_lines);	
 	}
 	else{
 		return xmlHttp.responseText;
@@ -124,8 +127,13 @@ function random_nip(){
 	return Math.floor(Math.random()*10000000000)+1;
 }
 
+function random_city(){
+	const cities_url = chrome.runtime.getURL('data/cities.txt');
+	let cities = get_file_data(cities_url, '\n');
+	return cities[Math.floor(Math.random() * cities.length)]
+}
 
 function get_text(char_number){
 	const text_url = chrome.runtime.getURL('data/lorem_ipsum.txt');
-	return get_file_data(text_url,false).slice(0,char_number);
+	return get_file_data(text_url,'').slice(0,char_number);
 }

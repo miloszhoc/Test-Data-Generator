@@ -12,7 +12,8 @@
 		"data/female_last_name.txt",
 		"data/male_name.txt",
 		"data/female_name.txt",
-		"data/lorem_ipsum.txt"
+		"data/lorem_ipsum.txt",
+		"data/cities.txt"
 	]
 }
 
