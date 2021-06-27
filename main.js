@@ -2,6 +2,8 @@ var output_field=document.querySelector("textarea[name='output']");
 
 var selected_option=document.querySelector('#select_section');
 
+var additional_options=document.getElementById('additional_options');
+
 selected_option.addEventListener("change", function() {
 	choose_option(selected_option.value);
 });
@@ -13,8 +15,9 @@ document.querySelector('#refresh').addEventListener("click", function(){
 
 
 function choose_option(option){
+	additional_options.style.display='none';
 	switch (option){
-		case 'Male full name':
+		case 'Male full name':		
 		output_field.value=random_male_full_name();
 		break;
 		case 'Female full name':
@@ -30,6 +33,7 @@ function choose_option(option){
 		output_field.value=random_nip();
 		break;
 		case 'Text':
+		additional_options.style.display='block';
 
 		if (!document.getElementById("amount_of_chars")){
 			let tag = document.createElement("input");
