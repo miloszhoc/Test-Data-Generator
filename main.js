@@ -78,13 +78,13 @@ function copy_text(from_field){
 }
 
 
-function get_file_data(url, split_lines='\r\n'){
+function get_file_data(url, new_line='\n'){
 	let xmlHttp = new XMLHttpRequest();
 	xmlHttp.open("GET", url, false);
 	xmlHttp.overrideMimeType("text/plain");
 	xmlHttp.send();
-	if (split_lines){
-		return xmlHttp.responseText.split(split_lines);	
+	if (new_line){
+		return xmlHttp.responseText.split(new_line);	
 	}
 	else{
 		return xmlHttp.responseText;
