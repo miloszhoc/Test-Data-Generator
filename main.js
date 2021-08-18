@@ -4,6 +4,8 @@ var selected_option=document.querySelector('#select_section');
 
 var additional_options=document.getElementById('additional_options');
 
+var info=document.getElementById('info');
+
 selected_option.addEventListener("change", function() {
 	choose_option(selected_option.value);
 });
@@ -16,6 +18,8 @@ document.querySelector('#refresh').addEventListener("click", function(){
 
 function choose_option(option){
 	additional_options.style.display='none';
+	info.style.display='none';
+
 	switch (option){
 		case 'Male full name':		
 		output_field.value=random_male_full_name();
@@ -38,7 +42,6 @@ function choose_option(option){
 		break;
 		case 'Text':
 		additional_options.style.display='block';
-
 		if (!document.getElementById("amount_of_chars")){
 			let tag = document.createElement("input");
 			let element = document.getElementById("additional_options");
@@ -66,6 +69,14 @@ function choose_option(option){
 			tag.setAttributeNode(max);
 		}
 		output_field.value=get_text(document.getElementById("amount_of_chars").value);
+		break;
+		case 'Char counter':
+		additional_options.style.display='block';
+		info.style.display='block';
+		if (document.getElementById('amount_of_chars')){
+			document.getElementById('amount_of_chars').style.display='none';
+		}
+		info.innerHTML = 'Length: ' + count_chars(output_field.value);
 		break;
 	}
 	copy_text(output_field);
@@ -139,4 +150,8 @@ function random_city(){
 function get_text(char_number){
 	const text_url = chrome.runtime.getURL('data/lorem_ipsum.txt');
 	return get_file_data(text_url,'').slice(0,char_number);
+}
+
+function count_chars(string){
+	return string.length;
 }
