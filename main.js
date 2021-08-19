@@ -2,11 +2,12 @@ var output_field=document.querySelector("textarea[name='output']");
 
 var selected_option=document.querySelector('#select_section');
 
-var additional_options=document.getElementById('additional_options');
-
-var info=document.getElementById('info');
+var div_additional_options=document.getElementById('additional_options');
+var p_info=document.getElementById('info');
+var input_num_len=document.getElementById('amount_of_chars');
 
 selected_option.addEventListener("change", function() {
+	div_additional_options.style.display='none';
 	choose_option(selected_option.value);
 });
 
@@ -17,9 +18,6 @@ document.querySelector('#refresh').addEventListener("click", function(){
 
 
 function choose_option(option){
-	additional_options.style.display='none';
-	info.style.display='none';
-
 	switch (option){
 		case 'Male full name':		
 		output_field.value=random_male_full_name();
@@ -41,42 +39,18 @@ function choose_option(option){
 		output_field.value=random_city();
 		break;
 		case 'Text':
-		additional_options.style.display='block';
-		if (!document.getElementById("amount_of_chars")){
-			let tag = document.createElement("input");
-			let element = document.getElementById("additional_options");
-			element.appendChild(tag);
+		div_additional_options.style.display='block';
+		input_num_len.style.display="block";
+		p_info.style.display="none";
 
-			let placeholder = document.createAttribute("placeholder");
-			placeholder.value = "Length";
-			tag.setAttributeNode(placeholder);
-
-			let id = document.createAttribute("id");
-			id.value = "amount_of_chars";
-			tag.setAttributeNode(id);
-
-			let type = document.createAttribute("type");
-			type.value = "number";
-			tag.setAttributeNode(type);
-
-
-			let min = document.createAttribute("min");
-			min.value = "1";
-			tag.setAttributeNode(min);
-
-			let max = document.createAttribute("max");
-			max.value = "29659";
-			tag.setAttributeNode(max);
-		}
-		output_field.value=get_text(document.getElementById("amount_of_chars").value);
+		output_field.value=get_text(input_num_len.value);
 		break;
 		case 'Char counter':
-		additional_options.style.display='block';
-		info.style.display='block';
-		if (document.getElementById('amount_of_chars')){
-			document.getElementById('amount_of_chars').style.display='none';
-		}
-		info.innerHTML = 'Length: ' + count_chars(output_field.value);
+		div_additional_options.style.display='block';
+		input_num_len.style.display="none";
+		p_info.style.display="block";
+
+		p_info.innerHTML = 'Length: ' + count_chars(output_field.value);
 		break;
 	}
 	copy_text(output_field);
