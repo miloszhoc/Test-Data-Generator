@@ -52,6 +52,21 @@ function choose_option(option){
 
 		p_info.innerHTML = 'Length: ' + count_chars(output_field.value);
 		break;
+		case 'Encode Base64':
+		div_additional_options.style.display='block';
+		input_num_len.style.display="none";
+		p_info.style.display="block";
+		
+		p_info.innerHTML = 'Encoded: ' + base64encode(output_field.value);
+		break;
+		case 'Decode Base64':
+		div_additional_options.style.display='block';
+		input_num_len.style.display="none";
+		p_info.style.display="block";
+		
+
+		p_info.innerHTML = 'Decoded: ' + base64decode(output_field.value);
+		break;
 	}
 	copy_text(output_field);
 }
@@ -128,4 +143,13 @@ function get_text(char_number){
 
 function count_chars(string){
 	return string.length;
+}
+
+function base64decode(string){
+	return atob(string);
+}
+
+
+function base64encode(string){
+	return btoa(string);
 }
