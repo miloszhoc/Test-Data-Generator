@@ -10,6 +10,7 @@ Chrome and Opera extension for quick test data generation.
 * City generator (Polsih)
 * Lorem Ipsum generator
 * Character counter
+* Base64 decoder and encoder
 
 
 Project inspired by [data-generator](https://chrome.google.com/webstore/detail/data-generator/ocaojfcfeffaeabdhhplnanikiimgndi)
