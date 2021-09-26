@@ -2,12 +2,12 @@
 Chrome and Opera extension for quick test data generation.
 
 ## Features:
-* Male full name generator (Polsih)
-* Female full name generator (Polsih)
+* Male full name generator (Polish)
+* Female full name generator (Polish)
 * Email generator
 * Phone number generator
 * NIP generator (Polish tax identification number)
-* City generator (Polsih)
+* City generator (Polish)
 * Lorem Ipsum generator
 * Character counter
 * Base64 decoder and encoder
