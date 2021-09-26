@@ -14,5 +14,7 @@ When you click the "Refresh" button it automatically copies text from the output
 * Character counter
 * Base64 decoder and encoder
 
+![ss2](Screenshot_2.png)
+![ss1](Screenshot_1.png)
 
 Project inspired by [data-generator](https://chrome.google.com/webstore/detail/data-generator/ocaojfcfeffaeabdhhplnanikiimgndi)
